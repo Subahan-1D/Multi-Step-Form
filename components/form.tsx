@@ -21,7 +21,12 @@ const steps = [
     name: 'Address',
     fields: ['country', 'state', 'city', 'street', 'zip']
   },
-  { id: 'Step 3', name: 'Complete' }
+  {
+    id: 'Step 3',
+    name: 'Account Setup',
+    fields: ['username', 'Password', 'Confirm Password']
+  },
+  { id: 'Step 4', name: 'Complete' }
 ]
 
 export default function Form() {
@@ -196,7 +201,7 @@ export default function Form() {
                 >
                   phoneNumber
                 </label>
-                <div  className='mt-2'>
+                <div className='mt-2'>
                   <input
                     id='phoneNumber'
                     type='tel'
@@ -328,6 +333,86 @@ export default function Form() {
         )}
 
         {currentStep === 2 && (
+          <motion.div
+            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <h2 className='text-base font-semibold leading-7 text-gray-900'>
+              Account Setup
+            </h2>
+            <p className='mt-1 text-sm leading-6 text-gray-600'>
+              Provide your Username or password.
+            </p>
+            <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+              <div className='sm:col-span-2 sm:col-start-1'>
+                <label
+                  htmlFor='username'
+                  className='block text-sm font-medium leading-6 text-gray-900'
+                >
+                  Username
+                </label>
+                <div className='mt-2'>
+                  <input
+                    type='text'
+                    id='username'
+                    {...register('username')}
+                    autoComplete='username'
+                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
+                  />
+                  {errors.username?.message && (
+                    <p className='mt-2 text-sm text-red-400'>
+                      {errors.username.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <div className='sm:col-span-2 sm:col-start-1'>
+                <label
+                  className='block text-sm font-medium leading-6 text-gray-900'
+                  htmlFor='password'
+                >
+                  Password
+                </label>
+                <div className='mt-2'>
+                  <input
+                    id='password'
+                    type='password'
+                    {...register('password')}
+                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
+                  />
+                  {errors.password && (
+                    <p className='text-sm text-red-500'>
+                      {errors.password.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className='sm:col-span-2 sm:col-start-1'>
+                <label
+                  className='block text-sm font-medium leading-6 text-gray-900'
+                  htmlFor='confirmPassword'
+                >
+                  Confirm Password
+                </label>
+                <div className='mt-2'><input
+                  id='confirmPassword'
+                  type='password'
+                  {...register('confirmPassword')}
+                  className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
+                />
+                {errors.confirmPassword && (
+                  <p className='text-sm text-red-500'>
+                    {errors.confirmPassword.message}
+                  </p>
+                )}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+        {currentStep === 3 && (
           <>
             <h2 className='text-base font-semibold leading-7 text-gray-900'>
               Complete

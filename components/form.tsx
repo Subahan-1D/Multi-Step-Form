@@ -14,7 +14,7 @@ const steps = [
   {
     id: 'Step 1',
     name: 'Personal Information',
-    fields: ['firstName', 'lastName', 'email']
+    fields: ['firstName', 'lastName', 'email' , 'phoneNumber']
   },
   {
     id: 'Step 2',

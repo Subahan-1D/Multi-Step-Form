@@ -90,7 +90,7 @@ export default function Form() {
                 </div>
               ) : currentStep === index ? (
                 <div
-                  className='flex w-full flex-col border-l-4 border-sky-600 py-2 pl-4 md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4'
+                  className='flex w-full flex-col border-l-4 border-sky-500 py-2 pl-4 md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4'
                   aria-current='step'
                 >
                   <span className='text-sm font-medium text-sky-600'>
@@ -311,7 +311,7 @@ export default function Form() {
                   htmlFor='zip'
                   className='block text-sm font-medium leading-6 text-gray-900'
                 >
-                  ZIP / Postal code
+                  ZIP Code
                 </label>
                 <div className='mt-2'>
                   <input
@@ -379,6 +379,7 @@ export default function Form() {
                     id='password'
                     type='password'
                     {...register('password')}
+                    autoComplete='new-password'
                     className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
                   />
                   {errors.password && (
@@ -400,6 +401,7 @@ export default function Form() {
                   id='confirmPassword'
                   type='password'
                   {...register('confirmPassword')}
+                  autoComplete='new-password'
                   className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
                 />
                 {errors.confirmPassword && (

@@ -1,18 +1,4 @@
-// import { z } from 'zod'
 
-// export const FormDataSchema = z.object({
-//   firstName: z.string().min(1, 'First name is required'),
-//   lastName: z.string().min(1, 'Last name is required'),
-//   email: z.string().min(1, 'Email is required').email('Invalid email address'),
-//   phoneNumber:z.string().min(10,'phoneNumber is required'),
-//   country: z.string().min(1, 'Country is required'),
-//   street: z.string().min(1, 'Street is required'),
-//   city: z.string().min(1, 'City is required'),
-//   zip: z.string().min(1, 'Zip is required'),
-//   username:z.string().min(4,'Username is required'),
-//   password:z.string().min(6,'Password is required'),
-//   confirmPassword:z.string().min(6,"Confirm password is required")
-// })
 import { z } from 'zod'
 
 export const FormDataSchema = z
